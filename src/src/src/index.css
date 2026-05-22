@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 20% 95%;
+    --foreground: 20 8% 16%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 8% 16%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 8% 16%;
+    --primary: 6 55% 49%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 130 16% 42%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 30 15% 90%;
+    --muted-foreground: 24 5% 45%;
+    --accent: 30 40% 82%;
+    --accent-foreground: 20 8% 16%;
+    --destructive: 6 55% 49%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 18% 88%;
+    --input: 30 12% 82%;
+    --ring: 6 55% 49%;
+    --radius: 0.75rem;
+
+    --bg-primary: #f5f0eb;
+    --bg-card: #ffffff;
+    --bg-elevated: #faf8f5;
+    --accent-primary: #c44536;
+    --accent-secondary: #5a7d5a;
+    --accent-tertiary: #d4a843;
+    --accent-coral: #e07a5f;
+    --accent-blush: #f4e1d2;
+    --text-primary: #2d2926;
+    --text-secondary: #6b6560;
+    --text-muted: #a39e99;
+    --border-light: #e8e2db;
+    --border-medium: #d5cec6;
+    --overlay: rgba(45, 41, 38, 0.4);
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3.display { font-family: var(--font-display); }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200;
+    background-color: var(--accent-primary);
+    color: white;
+  }
+  .btn-primary:hover { background-color: #a33a2d; transform: translateY(-2px); }
+
+  .btn-outline {
+    @apply px-6 py-3 rounded-xl font-semibold text-sm border transition-all duration-200;
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+    background: transparent;
+  }
+  .btn-outline:hover { background-color: var(--accent-primary); color: white; }
+
+  .card-wehouse {
+    @apply rounded-2xl p-6 transition-all duration-300;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .card-wehouse:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+
+  .stamp-watermark {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    opacity: 0.06;
+    animation: stampRotate 60s linear infinite;
+    pointer-events: none;
+  }
+
+  .status-available {
+    @apply px-3 py-1 rounded-full text-xs font-medium;
+    background: #e8f5e9;
+    color: #2e7d32;
+  }
+  .status-booked {
+    @apply px-3 py-1 rounded-full text-xs font-medium;
+    background: #fff3e0;
+    color: #ef6c00;
+  }
+  .status-pending {
+    @apply px-3 py-1 rounded-full text-xs font-medium;
+    background: #fce4ec;
+    color: #c62828;
+  }
+}
+
+@layer utilities {
+  @keyframes stampRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(196, 69, 54, 0.4); }
+    50% { box-shadow: 0 0 0 8px rgba(196, 69, 54, 0); }
+  }
+  @keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes scaleIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  .animate-slide-in { animation: slideInRight 0.3s ease-out; }
+  .animate-fade-in { animation: fadeIn 0.3s ease-out; }
+  .animate-scale-in { animation: scaleIn 0.2s ease-out; }
+  .animate-pulse-glow { animation: pulse-glow 2s infinite; }
+    }
+  
