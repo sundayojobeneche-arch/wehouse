@@ -1,4 +1,4 @@
-# WeHouse - Student Housing Platform
+# WeHouse - Student Housing Platform v2
 
 A full-stack student housing web application built with React, TypeScript, Tailwind CSS, and Supabase.
 
